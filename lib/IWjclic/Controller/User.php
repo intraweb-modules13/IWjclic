@@ -36,6 +36,8 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
             foreach ($groups as $group) {
                 $groupsString .= $allGroupsArray[$group['group_id']] . '<br />';
             }
+            $limitDate = ($activity['limitDate'] != '') ? date('d/m/y', $activity['limitDate']) : '';
+            $initDate = ($activity['initDate'] != '') ? date('d/m/y', $activity['initDate']) : '';
             $activitiesAssignedArray[] = array('groups' => $groupsString,
                 'name' => $activity['name'],
                 'description' => $activity['description'],
@@ -47,8 +49,9 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
                 'skin' => $activity['skin'],
                 'scoreToOptain' => $activity['scoreToOptain'],
                 'solvedToOptain' => $activity['solvedToOptain'],
-                'limitDate' => date('d/m/y', $activity['limitDate']),
-                'initDate' => date('d/m/y', $activity['initDate']));
+                'limitDate' => $limitDate,
+                'initDate' => $initDate,
+                );
         }
         $skinsArray = array('@default.xml' => 'default',
             '@blue.xml' => 'blue',
@@ -286,8 +289,8 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
             foreach ($groupsAssigned as $group) {
                 $groupsString .= $group['group_id'] . '$';
             }
-            $jclic['limitDate'] = date("d/m/y", $jclic['limitDate']);
-            $jclic['initDate'] = date("d/m/y", $jclic['initDate']);
+            $jclic['limitDate'] = ($jclic['limitDate'] != '') ? date("d/m/y", $jclic['limitDate']) : '';
+            $jclic['initDate'] = ($jclic['initDate'] != '') ? date("d/m/y", $jclic['initDate']) : '';
             $mode = "edit";
         } else {
             $jclicUpdatedFiles = ModUtil::getVar('IWjclic', 'jclicUpdatedFiles');

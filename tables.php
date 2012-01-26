@@ -33,7 +33,7 @@ function IWjclic_tables() {
     $table['IWjclic_column_def'] = array('jid' => "I NOTNULL AUTO PRIMARY",
         'user' => "I NOTNULL DEFAULT '0'",
         'name' => "C(255) NOTNULL DEFAULT ''",
-        'description' => "TEXT NOTNULL",
+        'description' => "X NOTNULL",
         'url' => "C(255) NOTNULL DEFAULT ''",
         'file' => "C(30) NOTNULL DEFAULT ''",
         'skin' => "C(20) NOTNULL DEFAULT ''",
@@ -44,10 +44,10 @@ function IWjclic_tables() {
         'solvedToOptain' => "C(5) DEFAULT NULL",
         'active' => "I(1) NOTNULL DEFAULT '0'",
         'date' => "C(20) NOTNULL DEFAULT ''",
-        'observations' => "TEXT NOTNULL",
+        'observations' => "X NOTNULL",
         'limitDate' => "C(20) NOTNULL DEFAULT ''",
         'initDate' => "C(20) NOTNULL DEFAULT ''",
-        'extended' => "TEXT NOTNULL");
+        'extended' => "X NOTNULL");
 
     ObjectUtil::addStandardFieldsToTableDefinition($table['IWjclic_column'], 'pn_');
     ObjectUtil::addStandardFieldsToTableDataDefinition($table['IWjclic_column_def'], 'iw_');
@@ -150,8 +150,8 @@ function IWjclic_tables() {
         'user_icon' => "C(255) NOTNULL DEFAULT ''",
         'user_code' => "C(50) NOTNULL DEFAULT ''",
         'user_keywords' => "C(255) NOTNULL DEFAULT ''",
-        'observations' => "TEXT NOTNULL",
-        'renotes' => "TEXT NOTNULL");
+        'observations' => "X NOTNULL",
+        'renotes' => "X NOTNULL");
 
     ObjectUtil::addStandardFieldsToTableDefinition($table['IWjclic_users_column'], 'pn_');
     ObjectUtil::addStandardFieldsToTableDataDefinition($table['IWjclic_users_column_def'], 'iw_');
