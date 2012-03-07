@@ -81,9 +81,9 @@
                 {/if}
                 {else}
                 <div>
-                    <input size="50" name="url" type="text" value="" id="url" />
-                    {if not $noFolder and not $noWriteable}
+                    <input size="50" name="url" type="text" value="" id="url" /> 
                 </div>
+                {if not $noFolder and not $noWriteable}
                 <div class="z-formnote">
                     {gt text="or, upload the file from the server activity"}
                 </div>
@@ -93,12 +93,12 @@
                 {else}
                 <input name="file" type="hidden" value="" />
                 {/if}
+                {/if}
             </div>
             {if $noFolder || $noWriteable}
             <div class="z-errormsg z-formnote">
                 {gt text="This module supports activities JClic directly to the server, but for a configuration error is not possible. Please contact the portal administrator."}
             </div>
-            {/if}
             {/if}
             {if $mode neq "edit"}
             <div class="z-informationmsg z-formnote">
@@ -211,26 +211,6 @@
     </form>
 </div>
 <script type="text/javascript">
-    {{*}}
-    Calendar.setup({
-        inputField     :    "limitDate",      // id of the input field
-        ifFormat       :    "%d/%m/%y",       // format of the input field
-        showsTime      :    true,            // will display a time selector
-        button         :    "trigBegin1",   // trigger for the calendar (button ID)
-        singleClick    :    true,           // double-click mode
-        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
-    });
-    Calendar.setup({
-        inputField     :    "initDate",      // id of the input field
-        ifFormat       :    "%d/%m/%y",       // format of the input field
-        showsTime      :    true,            // will display a time selector
-        button         :    "trigBegin0",   // trigger for the calendar (button ID)
-        singleClick    :    true,           // double-click mode
-        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
-    });
-    {{*}}
-    
-    
     var limitDate = Calendar.setup({
         onSelect       :    function(limitDate) { limitDate.hide() }
     });
@@ -240,6 +220,4 @@
         onSelect       :    function(initDate) { initDate.hide() }
     });
     initDate.manageFields("initDate_btn", "initDate_id", "%d/%m/%y");
-    
-    
 </script>
