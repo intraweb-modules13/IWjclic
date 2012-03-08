@@ -14,14 +14,8 @@ if($GLOBALS["HTTP_RAW_POST_DATA"]){
 }
 
 // init zikula engine
-include 'includes/pnAPI.php';
-
-pnInit(Zikula_Core::STAGE_CONFIG |
-		Zikula_Core::STAGE_ADODB |
-		Zikula_Core::STAGE_DB |
-		Zikula_Core::STAGE_OBJECTLAYER |
-		Zikula_Core::STAGE_TABLES |
-		Zikula_Core::STAGE_THEME);
+include 'lib/bootstrap.php';
+$core->init();
 
 $elements=array();
 $oldElements=array();
@@ -153,4 +147,3 @@ function getPrecision($minActions, $numActions, $solved, $score){
 
 
 System::shutdown();
-?>
