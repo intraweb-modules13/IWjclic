@@ -51,7 +51,7 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
                 'solvedToOptain' => $activity['solvedToOptain'],
                 'limitDate' => $limitDate,
                 'initDate' => $initDate,
-                );
+            );
         }
         $skinsArray = array('@default.xml' => 'default',
             '@blue.xml' => 'blue',
@@ -121,6 +121,10 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
         $userInfo = ModUtil::func('IWmain', 'user', 'getUserInfo', array('sv' => $sv,
                     'uid' => $activity['user'],
                     'info' => 'ncc'));
+
+        $limitDate = ($activity['limitDate'] != '') ? date('d/M/Y', $activity['limitDate']) : '';
+        $initDate = ($activity['initDate'] != '') ? date('d/M/Y', $activity['initDate']) : '';
+
         $activityArray = array('jid' => $activity['jid'],
             'user' => $userInfo,
             'description' => $activity['description'],
@@ -129,8 +133,8 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
             'attempsToDo' => $attempsToDo,
             'extended' => $extended,
             'state' => $state,
-            'limitDate' => date('d/M/Y', $activity['limitDate']),
-            'initDate' => date('d/M/Y', $activity['initDate']),
+            'limitDate' => $limitDate,
+            'initDate' => $initDate,
             'date' => date('d/M/Y', $activity['date']));
         return $activityArray;
     }
@@ -315,8 +319,8 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
                 'initDate' => '',
                 'limitDate' => '',
                 'solvedToOptain' => '',
-                );
-            $groupsString = array();
+            );
+            $groupsString = '';
         }
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $groups = ModUtil::func('IWmain', 'user', 'getAllGroups', array('sv' => $sv,
@@ -482,6 +486,13 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('IWjclic::', "::", ACCESS_READ) || !UserUtil::isLoggedIn()) {
             throw new Zikula_Exception_Forbidden();
         }
+
+        $resultsArray = array();
+        $totalTimeMsTotal = 0;
+        $scoreTotal = 0;
+        $activitiesOkTotal = 0;
+        $activitiesNumberTotal = 0;
+
         //get the sessions for an activity
         $sessions = ModUtil::apiFunc('IWjclic', 'user', 'getSessions', array('jid' => $jid,
                     'uid' => $uid));
@@ -509,20 +520,22 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
                 'activitiesOk' => $activitiesOk,
                 'activitiesNumber' => count($activities));
         }
-        foreach ($resultsArray as $result) {
-            $scoreTotal = $scoreTotal + $result['score'];
-            $totalTimeMsTotal = $totalTimeMsTotal + $result['totalTimeMs'];
-            $activitiesOkTotal = $activitiesOkTotal + $result['activitiesOk'];
-            $activitiesNumberTotal = $activitiesNumberTotal + $result['activitiesNumber'];
+        if (count($resultsArray)) {
+            foreach ($resultsArray as $result) {
+                $scoreTotal = $scoreTotal + $result['score'];
+                $totalTimeMsTotal = $totalTimeMsTotal + $result['totalTimeMs'];
+                $activitiesOkTotal = $activitiesOkTotal + $result['activitiesOk'];
+                $activitiesNumberTotal = $activitiesNumberTotal + $result['activitiesNumber'];
+            }
         }
         if ($all == null) {
             $resultsArray = array();
         }
-        $scoreAv = round($scoreTotal / count($sessions), 2);
-        $totalTimeAv = ModUtil::func('IWjclic', 'user', 'calcTime', array('totalTime' => round($totalTimeMsTotal / count($sessions))));
+        $scoreAv = (count($sessions) > 0) ? round($scoreTotal / count($sessions), 2) : 0;
+        $totalTimeAv = ModUtil::func('IWjclic', 'user', 'calcTime', array('totalTime' => (count($sessions) > 0) ? round($totalTimeMsTotal / count($sessions)) : 0));
         $totalTimeTotal = ModUtil::func('IWjclic', 'user', 'calcTime', array('totalTime' => $totalTimeMsTotal));
-        $activitiesOkAv = round($activitiesOkTotal / count($sessions), 2);
-        $activitiesNumberAv = round($activitiesNumberTotal / count($sessions), 2);
+        $activitiesOkAv = (count($sessions) > 0) ? round($activitiesOkTotal / count($sessions), 2) : 0;
+        $activitiesNumberAv = (count($sessions) > 0) ? round($activitiesNumberTotal / count($sessions), 2) : 0;
         $scoreOk = ($scoreAv >= $scoreToOptain) ? 1 : 0;
         $solvedOk = ($activitiesOkAv >= $solvedToOptain) ? 1 : 0;
         $scoreOk = ($scoreToOptain == null) ? '-1' : $scoreOk;
@@ -570,6 +583,7 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
         if (!SecurityUtil::checkPermission('IWjclic::', "::", ACCESS_ADD)) {
             throw new Zikula_Exception_Forbidden();
         }
+
         //get jclic activity
         $jclic = ModUtil::apiFunc('IWjclic', 'user', 'get', array('jid' => $jid));
         if ($jclic == false) {
@@ -650,8 +664,8 @@ class IWjclic_Controller_User extends Zikula_AbstractController {
             //get the member session
             $sessionsArray[] = array('uname' => $value,
                 'results' => $results,
-                'observations' => $userSession[$key]['observations'],
-                'renotes' => $userSession[$key]['renotes'],
+                'observations' => ($userSession) ? $userSession[$key]['observations'] : 0,
+                'renotes' => ($userSession) ? $userSession[$key]['renotes'] : 0,
                 'uid' => $key,
                 'photo' => $photo_s,
                 'onlySum' => $onlySum);

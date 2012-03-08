@@ -115,11 +115,15 @@
             </div>
             <div class="z-formrow">
                 <label for="width">{gt text="Width"}:</label>
-                <input size="5" name="width" type="text" value="{$jclic.width}" id="width" />
+                <div class="z-formnote">
+                <input size="5" name="width" type="text" value="{$jclic.width}" id="width" /> px
+                </div>
             </div>
             <div class="z-formrow">
                 <label for="height">{gt text="Height"}:</label>
-                <input size="5" name="height" type="text" value="{$jclic.height}" id="height" />
+                <div class="z-formnote">
+                <input size="5" name="height" type="text" value="{$jclic.height}" id="height" /> px
+                </div>
             </div>
         </fieldset>
         <fieldset id="header_score">
@@ -135,7 +139,9 @@
             </div>
             <div class="z-formrow">
                 <label for="scoreToOptain">{gt text="Scoring average to achieve"}:</label>
-                <input size="3" maxlength="2" name="scoreToOptain" type="text" value="{$jclic.scoreToOptain}" id="scoreToOptain" /> %
+                <div class="z-formnote">
+                    <input size="3" maxlength="2" name="scoreToOptain" type="text" value="{$jclic.scoreToOptain}" id="scoreToOptain" /> %
+                </div>
             </div>
             <div class="z-formrow">
                 <label for="solvedToOptain">{gt text="Number of different activities resolved correctly"}:</label>

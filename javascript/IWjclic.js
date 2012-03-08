@@ -2,7 +2,7 @@ String.prototype.replaceAll=function(s1, s2) {
     return this.split(s1).join(s2)
     }
 
-function iwjclicAddGroupToAssignment(group){
+function iwjclicAddGroupToAssignment(){
     var form = document.forms['assignment_form'];
     var newgroup = form.newgroup.value;
     var selectedgroups = form.groups.value;
@@ -31,7 +31,7 @@ function send(){
 
 function hideShow(jid){
     wait(jid);
-    var pars = "module=iw_jclic&func=hideShow&jid=" + jid;
+    var pars = "module=IWjclic&func=hideShow&jid=" + jid;
     var myAjax = new Ajax.Request("ajax.php", {
         method: 'get',
         parameters: pars,
@@ -71,7 +71,7 @@ function results(jid, uid){
     }else{
         Element.update('results_'+jid, '<div style="text-align: center;"><img src="images/ajax/circle-ball-dark-antialiased.gif"></div>').innerHTML;
     }
-    var pars = "module=iw_jclic&func=results&jid=" + jid + "&uid=" + uid;
+    var pars = "module=IWjclic&func=results&jid=" + jid + "&uid=" + uid;
     var myAjax = new Ajax.Request("ajax.php", {
         method: 'get',
         parameters: pars,
@@ -102,7 +102,7 @@ function resultsOff(jid){
 }
 
 function editCorrectContent(jid,uid,toDo){
-    var pars = "module=iw_jclic&func=editCorrectContent&jid=" + jid + "&uid=" + uid + "&do=" + toDo;
+    var pars = "module=IWjclic&func=editCorrectContent&jid=" + jid + "&uid=" + uid + "&do=" + toDo;
     var myAjax = new Ajax.Request("ajax.php", 
     {
         method: 'get', 
@@ -145,7 +145,7 @@ function submitValue(jid,uid,toDo){
     value = replaceChars('#', "|par|", value);
     value = replaceChars('%', "|per|", value);
 
-    var pars = "module=iw_jclic&func=submitValue&jid=" + jid + "&value=" + value + "&do=" + toDo + "&uid=" + uid;
+    var pars = "module=IWjclic&func=submitValue&jid=" + jid + "&value=" + value + "&do=" + toDo + "&uid=" + uid;
     var myAjax = new Ajax.Request("ajax.php", 
     {
         method: 'get', 
@@ -191,7 +191,7 @@ function del(jid,text){
     resposta=confirm(text);
     if (resposta) {
         showinfo(jid, deletingassign);
-        var pars = "module=iw_jclic&func=delete&jid=" + jid;
+        var pars = "module=IWjclic&func=delete&jid=" + jid;
         var myAjax = new Ajax.Request("ajax.php", {
             method: 'get',
             parameters: pars,

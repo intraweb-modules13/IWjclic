@@ -4,7 +4,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the properties of the activities that the user has assigned to other users
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @return:	An array with the activity proporties
      */
     public function getAllActivitiesAssigned() {
@@ -33,7 +33,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the properties of the activities that a user have got assigned
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @return:	An array with the activity proporties
      */
     public function getAllActivities($args) {
@@ -43,7 +43,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
         }
 
         $uid = UserUtil::getVar('uid');
-        
+
         //get all the groups of the user
         $sv = ModUtil::func('IWmain', 'user', 'genSecurityValue');
         $userGroups = ModUtil::func('IWmain', 'user', 'getAllUserGroups', array('uid' => $uid,
@@ -93,7 +93,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the properties of an activity
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the activity
      * @return:	An array with the activity proporties
      */
@@ -124,7 +124,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Create a group assignament for a jclic activity
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the group
      * @return:	add the group into the assignament tables
      */
@@ -167,7 +167,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Assign an activity to the specified groups if them haven't got it assigned yet
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   string with the groups and Id of the assigment
      * @return:	Create or delete the assignments to groups
      */
@@ -232,7 +232,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get the groups that have got this activity assigned
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the assigment
      * @return:	An array with the groups identities
      */
@@ -275,7 +275,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Add a group into the assignation
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   The activity identity and the group identity
      * @return:	True if success and false otherwise
      */
@@ -317,7 +317,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Delete a group assignation
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   The activity identity and the group identity
      * @return:	True if success and false otherwise
      */
@@ -359,7 +359,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Assign an activity to the specified groups if them haven't got it assigned yet
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   string with the groups and Id of the assigment
      * @return:	Create or delete the assignments to groups
      */
@@ -402,7 +402,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Create a new session for an user
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the group
      * @return:	add the group into the assignament tables
      */
@@ -425,7 +425,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Create a user for the session
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the group
      * @return:	add the group into the assignament tables
      */
@@ -447,7 +447,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get jclic settings
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @return:	the jclic setting needed to report activities
      */
     public function getSettings() {
@@ -465,7 +465,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get user sessions for an activity
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		activity identity
      * @return:	an array with the sessions information
      */
@@ -508,7 +508,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get user activities for a session
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		session identity
      * @return:	an array with the activities information
      */
@@ -545,7 +545,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Create a user for the session
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the group
      * @return:	add the group into the assignament tables
      */
@@ -571,7 +571,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Check if a user has begin an activity because he/she is created in users table
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the user an id of the activity
      * @return:	true if user exists and false otherwise
      */
@@ -608,7 +608,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Check if a user has begin an activity because he/she is created in users table
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the user an id of the activity
      * @return:	true if user exists and false otherwise
      */
@@ -657,7 +657,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Delete all the users that have done the activities
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the assignament
      * @return:	true if user exists and false otherwise
      */
@@ -696,7 +696,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Delete all the sessions about the assignament
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the assignament
      * @return:	true if user exists and false otherwise
      */
@@ -744,7 +744,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Delete the assignament
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:	args   Id of the assignament
      * @return:	true if user exists and false otherwise
      */
@@ -776,7 +776,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
     /**
      * Get all sessions for an activity
-     * @author:     Albert PÃ©rez Monfort (aperezm@xtec.cat)
+     * @author:     Albert Pérez Monfort (aperezm@xtec.cat)
      * @param:		activity identity
      * @return:	an array with the sessions information
      */
@@ -820,6 +820,23 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
 
         // Return the items
         return $items;
+    }
+
+    public function getlinks() {
+        $links = array();
+
+        if (SecurityUtil::checkPermission('IWforms::', "::", ACCESS_ADD)) {
+            $links[] = array('url' => ModUtil::url('IWjclic', 'user', 'main'), 'text' => $this->__('Activities I have assigned'), 'class' => 'z-icon-es-view');
+        }
+        if (SecurityUtil::checkPermission('IWjclic::', "::", ACCESS_READ)) {
+            $links[] = array('url' => ModUtil::url('IWjclic', 'user', 'assigned'), 'text' => $this->__('Activities assigned'), 'class' => 'z-icon-es-view');
+        }
+        if (SecurityUtil::checkPermission('IWjclic::', "::", ACCESS_READ)) {
+            $links[] = array('url' => ModUtil::url('IWjclic', 'user', 'assig'), 'text' => $this->__('Assign activities'), 'class' => 'z-icon-es-new');
+        }
+
+
+        return $links;
     }
 
 }
