@@ -521,7 +521,7 @@ class IWjclic_Api_User extends Zikula_AbstractApi {
         }
 
         // Needed argument
-        if (session_id == null) {
+        if ($session_id == null) {
             return LogUtil::registerError($this->__('Error! Could not do what you wanted. Please check your input.'));
         }
 

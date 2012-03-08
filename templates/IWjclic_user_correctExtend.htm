@@ -4,7 +4,9 @@
     <h2>{gt text="Correct"} => {$jclic.name}</h2>
     <div style="height: 15px;"></div>
     <div>
-        <a href="{modurl modname="IWjclic" type="user" func="correct" jid=$jclic.jid all=1}">{gt text="Enlarge"}</a>
+        <a href="{modurl modname='IWjclic' type='user' func='correct' jid=$jclic.jid all=1}">
+            {gt text="Enlarge"}
+        </a>
         <table class="usertable" style="background:#FFF;">
             <thead>
                 <tr>
@@ -22,8 +24,6 @@
                 <td width="10">
                     {if $session.photo neq ''}
                     <img src="{modurl modname='IWmain' type='user' func='getPhoto' fileName=$session.photo}" />
-                    {else}
-                    &nbsp;
                     {/if}
                 </td>
                 <td>
