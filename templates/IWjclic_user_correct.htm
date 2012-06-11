@@ -2,7 +2,6 @@
 <div class="usercontainer">
     <div class="userpageicon">{img modname='core' src='button_ok.png' set='icons/large'}</div>
     <h2>{gt text="Correct"} => {$jclic.name}</h2>
-    <div style="height: 15px;"></div>
     <div>
         {if $oneUserReturn != ''}
         <a href="{modurl modname='IWjclic' type='user' func=$oneUserReturn jid=$jclic.jid}">
@@ -70,7 +69,7 @@
                             <tr>
                                 <td><strong>{gt text="Average"} ({$result.tries})</strong></td>
                                 <td align="center" {if $result.scoreOk neq -1}{if $result.scoreOk}style="background-color: #96EF95;"{else}style="background-color: #FF5F5F;"{/if}{/if}>
-                                    {$result.scoreAv}{if $results|@count neq $smarty.foreach.r.iteration}%{/if}
+                                    {$result.scoreAv}{if $result|@count neq $smarty.foreach.r.iteration}%{/if}
                             </td>
                             <td align="center">{$result.totalTimeAv}</td>
                             <td align="center">

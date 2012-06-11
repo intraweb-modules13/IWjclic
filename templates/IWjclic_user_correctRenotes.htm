@@ -2,7 +2,7 @@
 <div id="correct_renotes_{$session.uid}">
     {if $session.renotes neq ''}
     <div style="background-color: #ffffaf; padding: 3px; margin: 3px;">
-        {$session.renotes|nl2br|modcallhooks|varcensor|safehtml|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"}
+        {$session.renotes|nl2br|safehtml|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"}
     </div>
     {/if}
 </div>

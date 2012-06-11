@@ -13,7 +13,7 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
         }
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'GET');
+        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
         if ($jid == -1) {
             AjaxUtil::error('no activity id');
         }
@@ -57,12 +57,12 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
         }
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'GET');
+        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
         if ($jid == -1) {
             AjaxUtil::error('no activity id');
         }
 
-        $uid = FormUtil::getPassedValue('uid', -1, 'GET');
+        $uid = FormUtil::getPassedValue('uid', -1, 'POST');
         if ($uid == -1) {
             $uid = UserUtil::getVar('uid');
             $correct = 0;
@@ -113,17 +113,17 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
         }
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'GET');
+        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
         if ($jid == -1) {
             AjaxUtil::error('no activity id');
         }
 
-        $uid = FormUtil::getPassedValue('uid', -1, 'GET');
+        $uid = FormUtil::getPassedValue('uid', -1, 'POST');
         if ($uid == -1) {
             AjaxUtil::error('no user id');
         }
 
-        $do = FormUtil::getPassedValue('do', -1, 'GET');
+        $do = FormUtil::getPassedValue('do', -1, 'POST');
         if ($do == -1) {
             AjaxUtil::error('no action defined');
         }
@@ -181,22 +181,22 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
         }
 
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'GET');
+        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
         if ($jid == -1) {
             AjaxUtil::error('no activity id');
         }
 
-        $uid = FormUtil::getPassedValue('uid', -1, 'GET');
+        $uid = FormUtil::getPassedValue('uid', -1, 'POST');
         if ($uid == -1) {
             AjaxUtil::error('no user id');
         }
 
-        $do = FormUtil::getPassedValue('do', -1, 'GET');
+        $do = FormUtil::getPassedValue('do', -1, 'POST');
         if ($do == -1) {
             AjaxUtil::error('no action defined');
         }
 
-        $value = FormUtil::getPassedValue('value', -1, 'GET');
+        $value = FormUtil::getPassedValue('value', -1, 'POST');
         if ($value == -1) {
             AjaxUtil::error('no value defined');
         }
@@ -256,7 +256,7 @@ class IWjclic_Controller_Ajax extends Zikula_Controller_AbstractAjax {
             AjaxUtil::error(DataUtil::formatForDisplayHTML($this->__('Sorry! No authorization to access this module.')));
         }
 
-        $jid = FormUtil::getPassedValue('jid', -1, 'GET');
+        $jid = FormUtil::getPassedValue('jid', -1, 'POST');
         if ($jid == -1) {
             AjaxUtil::error('no activity id');
         }

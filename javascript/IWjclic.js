@@ -33,7 +33,7 @@ function hideShow(jid){
     wait(jid);
     var pars = "module=IWjclic&func=hideShow&jid=" + jid;
     var myAjax = new Ajax.Request("ajax.php", {
-        method: 'get',
+        method: 'post',
         parameters: pars,
         onComplete: hideShow_response,
         onFailure: hideShow_failure
@@ -73,7 +73,7 @@ function results(jid, uid){
     }
     var pars = "module=IWjclic&func=results&jid=" + jid + "&uid=" + uid;
     var myAjax = new Ajax.Request("ajax.php", {
-        method: 'get',
+        method: 'post',
         parameters: pars,
         onComplete: results_response,
         onFailure: results_failure
@@ -105,7 +105,7 @@ function editCorrectContent(jid,uid,toDo){
     var pars = "module=IWjclic&func=editCorrectContent&jid=" + jid + "&uid=" + uid + "&do=" + toDo;
     var myAjax = new Ajax.Request("ajax.php", 
     {
-        method: 'get', 
+        method: 'post', 
         parameters: pars, 
         onComplete: editCorrectContent_response,
         onFailure: editCorrectContent_failure
@@ -148,7 +148,7 @@ function submitValue(jid,uid,toDo){
     var pars = "module=IWjclic&func=submitValue&jid=" + jid + "&value=" + value + "&do=" + toDo + "&uid=" + uid;
     var myAjax = new Ajax.Request("ajax.php", 
     {
-        method: 'get', 
+        method: 'post', 
         parameters: pars, 
         onComplete: submitValue_response,
         onFailure: submitValue_failure
@@ -193,7 +193,7 @@ function del(jid,text){
         showinfo(jid, deletingassign);
         var pars = "module=IWjclic&func=delete&jid=" + jid;
         var myAjax = new Ajax.Request("ajax.php", {
-            method: 'get',
+            method: 'post',
             parameters: pars,
             onComplete: del_response,
             onFailure: del_failure

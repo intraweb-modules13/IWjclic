@@ -2,7 +2,7 @@
 <div id="correct_observations_{$session.uid}">
     {if $session.observations neq ''}
     <div style="background-color: #ffffaf; padding: 3px; margin: 3px;">
-        {$session.observations|nl2br|modcallhooks|varcensor|safehtml|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"}
+        {$session.observations|nl2br|safehtml|replace:"|per|":"%"|replace:"|par|":"#"|replace:"|int|":"?"|replace:"|amp|":"&"}
     </div>
     {/if}
 </div>
